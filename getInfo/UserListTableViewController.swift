@@ -37,7 +37,7 @@ class UserListTableViewController: UITableViewController {
     // Dispose of any resources that can be recreated.
   }
   
-  // MARK: - Table view data source
+  // MARK: - Table view data source and delegate
   
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     if isExpanded{
@@ -48,9 +48,9 @@ class UserListTableViewController: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     switch Cell(rawValue: section)!{
-     case .ExpandCell: return 1
-     case .userListCell:return dataList.count
+    switch Cell(rawValue: section)!{
+    case .ExpandCell: return 1
+    case .userListCell:return dataList.count
     }
   }
   
@@ -69,6 +69,7 @@ class UserListTableViewController: UITableViewController {
       return cell
     }
   }
+  
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     if indexPath.section == 0{
       if isExpanded == true {
@@ -85,5 +86,20 @@ class UserListTableViewController: UITableViewController {
   
   override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return 80
+  }
+  
+  override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    var rotation = CATransform3DMakeRotation(CGFloat(M_PI)/2, 0, 0.7, 0.4)
+    rotation.m34 = 1.0 / -600
+    cell.layer.shadowColor = UIColor.blackColor().CGColor
+    cell.layer.shadowOffset = CGSizeMake(10,10)
+    cell.alpha = 0
+    cell.layer.transform = rotation
+    cell.layer.anchorPoint = CGPointMake(0, 0.5)
+    UIView.animateWithDuration(0.8) {
+      cell.layer.transform = CATransform3DIdentity
+      cell.alpha = 1
+      cell.layer.shadowOffset = CGSizeMake(0, 0)
+    }
   }
 }

@@ -12,7 +12,7 @@ class UserListTableViewController: UITableViewController {
   var dataList = [[String:String]]()
   var canExpansion = true
   var isExpanded = false
-  
+  @IBOutlet weak var refreshControler: UIRefreshControl!
   enum Cell:Int{
     case ExpandCell,userListCell
   }
@@ -20,6 +20,7 @@ class UserListTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.tableFooterView = UIView(frame: CGRect.zero)
+    
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -68,6 +69,13 @@ class UserListTableViewController: UITableViewController {
       cell.userHeadimageView.setImageWithURL(NSURL(string:Define.imageIp + imageUrl!)!)
       return cell
     }
+  }
+  
+  
+  override func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    //sleep(2)
+    refreshControler.endRefreshing()
+     NSNotificationCenter.defaultCenter().postNotificationName("getRefresh", object: self, userInfo: nil)
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

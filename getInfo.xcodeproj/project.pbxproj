@@ -19,6 +19,8 @@
 		6F2E6E841CE1D69A009D454B /* UserListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E6E831CE1D69A009D454B /* UserListTableViewController.swift */; };
 		6F2E6E861CE1D6EA009D454B /* Public_Func.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E6E851CE1D6EA009D454B /* Public_Func.swift */; };
 		6F2E6E8B1CE1E29E009D454B /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E6E8A1CE1E29E009D454B /* UserListTableViewCell.swift */; };
+		6FCE2A8F1CEB0E4500499CE5 /* NavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCE2A8E1CEB0E4500499CE5 /* NavVC.swift */; };
+		6FCE2A911CEB192F00499CE5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCE2A901CEB192F00499CE5 /* TabBarController.swift */; };
 		6FE20BF11CE32251002191D4 /* expandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE20BF01CE32251002191D4 /* expandTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +61,8 @@
 		6F2E6E851CE1D6EA009D454B /* Public_Func.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Public_Func.swift; sourceTree = "<group>"; };
 		6F2E6E871CE1D93C009D454B /* getInfo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "getInfo-Bridging-Header.h"; sourceTree = "<group>"; };
 		6F2E6E8A1CE1E29E009D454B /* UserListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListTableViewCell.swift; sourceTree = "<group>"; };
+		6FCE2A8E1CEB0E4500499CE5 /* NavVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavVC.swift; sourceTree = "<group>"; };
+		6FCE2A901CEB192F00499CE5 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		6FE20BF01CE32251002191D4 /* expandTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = expandTableViewCell.swift; sourceTree = "<group>"; };
 		9E47D67E436AAAB08642C4C3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E94C40A89E6A4C7484A2C143 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 				6F2E6E831CE1D69A009D454B /* UserListTableViewController.swift */,
 				6FE20BF01CE32251002191D4 /* expandTableViewCell.swift */,
 				6F2E6E561CE1D652009D454B /* Main.storyboard */,
+				6FCE2A901CEB192F00499CE5 /* TabBarController.swift */,
+				6FCE2A8E1CEB0E4500499CE5 /* NavVC.swift */,
 				6F2E6E8A1CE1E29E009D454B /* UserListTableViewCell.swift */,
 				6F2E6E851CE1D6EA009D454B /* Public_Func.swift */,
 				6F2E6E5C1CE1D652009D454B /* Assets.xcassets */,
@@ -351,7 +357,9 @@
 				6F2E6E861CE1D6EA009D454B /* Public_Func.swift in Sources */,
 				6F2E6E5B1CE1D652009D454B /* getInfo.xcdatamodeld in Sources */,
 				6F2E6E551CE1D652009D454B /* ViewController.swift in Sources */,
+				6FCE2A911CEB192F00499CE5 /* TabBarController.swift in Sources */,
 				6F2E6E841CE1D69A009D454B /* UserListTableViewController.swift in Sources */,
+				6FCE2A8F1CEB0E4500499CE5 /* NavVC.swift in Sources */,
 				6FE20BF11CE32251002191D4 /* expandTableViewCell.swift in Sources */,
 				6F2E6E8B1CE1E29E009D454B /* UserListTableViewCell.swift in Sources */,
 				6F2E6E531CE1D652009D454B /* AppDelegate.swift in Sources */,

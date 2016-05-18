@@ -12,6 +12,7 @@ class UserListTableViewController: UITableViewController {
   var dataList = [[String:String]]()
   var canExpansion = true
   var isExpanded = false
+  var isRefreshing = false
   @IBOutlet weak var refreshControler: UIRefreshControl!
   enum Cell:Int{
     case ExpandCell,userListCell
@@ -71,11 +72,9 @@ class UserListTableViewController: UITableViewController {
     }
   }
   
-  
   override func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-    //sleep(2)
     refreshControler.endRefreshing()
-     NSNotificationCenter.defaultCenter().postNotificationName("getRefresh", object: self, userInfo: nil)
+    NSNotificationCenter.defaultCenter().postNotificationName("getRefresh", object: self, userInfo: ["data": "5"])
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

@@ -9,29 +9,32 @@
 import UIKit
 
 class NavVC: UINavigationController {
-  var notifactionView = UIView()
-  var notifationLabel = UILabel()
+  var notifactionView: UIView!
+  var notifationLabel: UILabel!
   var refreshAmount = Int()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    //navigationBar.translucent = false
-    //setNotifaction()
-    // Do any additional setup after loading the view.
   }
   
   func setAnimate(){
     UIView.animateWithDuration(1, animations: {
       self.notifactionView.transform  = CGAffineTransformMakeTranslation(0, 30)
     }) { (finish) in
-      sleep(2)
-      UIView.animateWithDuration(1, animations: {
-        self.notifactionView.transform  = CGAffineTransformIdentity
-        }, completion: { (finish) in
-          UIView.animateWithDuration(0.5, animations: {
-            self.notifationLabel.alpha = 0
-            self.notifactionView.alpha = 0
-          })
+      let time:NSTimeInterval = 2.0
+      let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(time*Double(NSEC_PER_SEC)))
+      dispatch_after(delay, dispatch_get_main_queue(), {
+        UIView.animateWithDuration(1, animations: {
+          self.notifactionView.transform  = CGAffineTransformIdentity
+          }, completion: { (finish) in
+            UIView.animateWithDuration(0.5, animations: {
+              self.notifationLabel.removeFromSuperview()
+              self.notifactionView.removeFromSuperview()
+              self.notifationLabel = nil
+              self.notifactionView = nil
+            })
+        })
+        
       })
     }
   }
@@ -49,8 +52,8 @@ class NavVC: UINavigationController {
   }
   
   func setNotifaction(notifaction:NSNotification){
-    
-    if let dict = notifaction.userInfo as? [String:String]{
+    if notifactionView == nil && notifationLabel == nil{
+      if let dict = notifaction.userInfo as? [String:String]{
         refreshAmount = Int(dict["data"]!)!
       }
       if refreshAmount > 0 {
@@ -68,21 +71,12 @@ class NavVC: UINavigationController {
         notifactionView.addSubview(notifationLabel)
         
         setAnimate()
+      }
     }
   }
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
     NSNotificationCenter.defaultCenter().removeObserver(self, name: "getRefresh", object: nil)
   }
-  
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
   
 }

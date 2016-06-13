@@ -25,7 +25,7 @@ class Public_Func: NSObject {
   }
 }
 struct Define{
-  static let netIp = "192.168.100.26"
+  static let netIp = "192.168.100.42"
   static let IP = "http://\(netIp)/interest/"
   static let imageIp = "http://\(netIp)/interest/thumb/"
 }
